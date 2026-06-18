@@ -2,6 +2,6 @@
 
 {
   programs.rbw = {
-    enable = false;
+    enable = true;
   };
 }

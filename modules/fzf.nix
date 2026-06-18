@@ -2,6 +2,6 @@
 
 {
   programs.fzf = {
-    enable = false;
+    enable = true;
   };
 }

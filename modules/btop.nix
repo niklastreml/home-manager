@@ -2,6 +2,6 @@
 
 {
   programs.btop = {
-    enable = false;
+    enable = true;
   };
 }

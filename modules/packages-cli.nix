@@ -15,8 +15,6 @@
     fd
     fzf
     gh
-    git
-    git-lfs
     gnumake
     graphviz
     helmfile
