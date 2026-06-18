@@ -1,81 +1,56 @@
-{ lib, pkgs, ... }: let
+{ lib, pkgs, isWsl ? false, ... }:
+let
+  platformModule = { lib, config, ... }: {
+    options.my = {
+      isLinux = lib.mkOption {
+        type = lib.types.bool;
+        default = pkgs.stdenv.isLinux;
+        readOnly = true;
+      };
+      isDarwin = lib.mkOption {
+        type = lib.types.bool;
+        default = pkgs.stdenv.isDarwin;
+        readOnly = true;
+      };
+      isWsl = lib.mkOption {
+        type = lib.types.bool;
+        default = isWsl;
+        readOnly = true;
+      };
+      isDesktop = lib.mkOption {
+        type = lib.types.bool;
+        default = pkgs.stdenv.isLinux && !isWsl;
+        readOnly = true;
+      };
+    };
+  };
+in {
+  imports = [
+    platformModule
+    ./modules/packages-cli.nix
+    ./modules/packages-gui.nix
+    ./modules/fish.nix
+    ./modules/git.nix
+    ./modules/tmux.nix
+    ./modules/starship.nix
+    ./modules/neovim.nix
+    ./modules/nix.nix
+    ./modules/fzf.nix
+    ./modules/bitwarden.nix
+    ./modules/btop.nix
+    ./modules/hyprland.nix
+    ./modules/waybar.nix
+    ./modules/aerospace.nix
+    ./modules/scripts.nix
+    ./modules/misc-configs.nix
+  ];
+
+  home = {
     username = "ntreml";
-in
-{
-    home = {
-        packages = with pkgs; [
-            autojump
-            bat
-            bear
-            # blueberry
-            bitwarden-cli
-            btop
-            cloc
-            curl
-            difftastic
-            dive
-            eza
-            fd
-            fzf
-            gh
-            git
-            git-lfs
-            gnumake
-            graphviz
-            helmfile
-            inetutils #
-            k9s
-            kind
-            krew
-            kubectl
-            ripgrep
-            tmux
-            tree-sitter
-            typst
-            unzip
-            vim
-            wget
-            wl-clipboard #
-        ];
-
-        username = "ntreml";
-        homeDirectory = "/home/ntreml";
-        # never change this ever
-        stateVersion = "26.05";
-        shell = {
-            enableFishIntegration = true;
-        };
+    homeDirectory = "/home/ntreml";
+    stateVersion = "26.05";
+    shell = {
+      enableFishIntegration = true;
     };
-
-    programs = {
-        fish = {
-            enable = true;
-            # interactiveShellInit = ''
-            # fenv source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-            # '';
-            plugins = with pkgs.fishPlugins; [
-            {
-                name = "fzf-fish";
-                src = fzf-fish.src;
-            }
-            {
-                name = "async-prompt";
-                src = async-prompt.src;
-            }
-            {
-                name = "foreign-env";
-                src = foreign-env.src;
-            }
-            ];
-        };
-        neovim = {
-            enable = false;
-        };
-        starship = {
-            enable = true;
-            enableFishIntegration = true;
-            enableInteractive = false;
-            presets = [ "nerd-font-symbols" ];
-        };
-    };
+  };
 }

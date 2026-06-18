@@ -1,5 +1,3 @@
-# flake.nix
-# Don't copy and paste this.  Read above first if you tried to cheat and skim.
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
@@ -12,7 +10,6 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
     in {
@@ -20,6 +17,12 @@
         ntreml = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./home.nix ];
+          extraSpecialArgs = { isWsl = false; };
+        };
+        "ntreml@wsl" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home.nix ];
+          extraSpecialArgs = { isWsl = true; };
         };
       };
     };
