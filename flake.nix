@@ -16,12 +16,18 @@
       homeConfigurations = {
         ntreml = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [
+            { nixpkgs.config.allowUnfree = true; }
+            ./home.nix
+          ];
           extraSpecialArgs = { isWsl = false; };
         };
         "ntreml@wsl" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./home.nix ];
+          modules = [
+            { nixpkgs.config.allowUnfree = true; }
+            ./home.nix
+          ];
           extraSpecialArgs = { isWsl = true; };
         };
       };

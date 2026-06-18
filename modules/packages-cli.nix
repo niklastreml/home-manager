@@ -32,5 +32,6 @@
     unzip
     vim
     wget
+    opencode
   ];
 }

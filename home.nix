@@ -27,6 +27,7 @@ let
 in {
   imports = [
     platformModule
+    ./modules/services.nix
     ./modules/packages-cli.nix
     ./modules/packages-gui.nix
     ./modules/fish.nix
