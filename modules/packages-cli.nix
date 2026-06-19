@@ -31,7 +31,6 @@
     typst
     unzip
     vim
-    neovim
     nodejs
     wget
     opencode

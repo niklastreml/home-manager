@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
-  programs.neovim = {
-    enable = false;
+  programs.nixvim = {
+    enable = true;
+    colorschemes.one.enable = true;
+    # plugins.lualine.enable = true;
   };
 }
