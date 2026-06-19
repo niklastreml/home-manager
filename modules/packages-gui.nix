@@ -6,6 +6,7 @@
     hyprlock
     hyprpaper
     hyprpicker
+    nerd-fonts.fira-code
     obsidian
     seer
     spotify
