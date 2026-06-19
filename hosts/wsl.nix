@@ -8,7 +8,7 @@
         ../modules/git.nix
         ../modules/misc-configs.nix
         ../modules/neovim.nix
-        ../modules/nix.nix
+        # ../modules/nix.nix
         ../modules/packages-cli.nix
         ../modules/scripts.nix
         ../modules/starship.nix
