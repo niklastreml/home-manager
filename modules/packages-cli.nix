@@ -15,9 +15,11 @@
     fd
     fzf
     gh
+    ghostscript
     gnumake
     graphviz
     helmfile
+    imagemagick
     inetutils
     k9s
     kind
@@ -25,11 +27,15 @@
     kubectl
     lua5_1
     luarocks
+    mercurial
+    mermaid-cli
     ripgrep
+    texliveBasic
     tmux
     tree-sitter
     typst
     unzip
+    # utftex TODO: figure out how to get this (not in nixpkgs)
     vim
     nodejs
     wget

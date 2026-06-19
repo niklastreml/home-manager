@@ -3,7 +3,476 @@
 {
   programs.nixvim = {
     enable = true;
-    colorschemes.one.enable = true;
-    # plugins.lualine.enable = true;
+
+    # ── Colorscheme ──────────────────────────────────────────────
+    colorschemes.onedark.enable = true;
+
+    # ── Global Variables ─────────────────────────────────────────
+    globals = {
+      mapleader = " ";
+      maplocalleader = "\\";
+      blamer_enabled = true;
+    };
+
+    # ── Editor Options ───────────────────────────────────────────
+    opts = {
+      number = true;
+      relativenumber = true;
+      scrolloff = 10;
+      mouse = "a";
+      hlsearch = true;
+      shiftwidth = 4;
+      smarttab = true;
+      expandtab = true;
+      tabstop = 8;
+      softtabstop = 0;
+      conceallevel = 1;
+      linebreak = true;
+      colorcolumn = "100";
+      clipboard = "unnamedplus";
+      breakindent = true;
+      undofile = true;
+      ignorecase = true;
+      smartcase = true;
+      signcolumn = "yes";
+      updatetime = 250;
+      timeoutlen = 300;
+      completeopt = "menuone,noselect";
+      termguicolors = true;
+    };
+
+    # ── Keymaps ──────────────────────────────────────────────────
+    keymaps = [
+      # File explorer
+      {
+        mode = "n";
+        key = "<leader>e";
+        action = "<cmd>Oil<CR>";
+        options.desc = "File Explorer";
+      }
+
+      # LSP
+      {
+        mode = "n";
+        key = "K";
+        action.__raw = "vim.lsp.buf.hover";
+        options.desc = "Hover";
+      }
+      {
+        mode = "n";
+        key = "gD";
+        action.__raw = "vim.lsp.buf.declaration";
+        options.desc = "[G]oto [D]eclaration";
+      }
+      {
+        mode = "n";
+        key = "<leader>lr";
+        action.__raw = "vim.lsp.buf.rename";
+        options.desc = "[R]ename";
+      }
+      {
+        mode = "n";
+        key = "<leader>la";
+        action.__raw = "vim.lsp.buf.code_action";
+        options.desc = "Code [A]ction";
+      }
+      {
+        mode = "n";
+        key = "<leader>lf";
+        action.__raw = "vim.lsp.buf.format";
+        options.desc = "[F]ormat";
+      }
+      {
+        mode = "n";
+        key = "<leader>li";
+        action.__raw = "vim.lsp.buf.implementation";
+        options.desc = "[I]mplementation";
+      }
+      {
+        mode = "n";
+        key = "<leader>lc";
+        action.__raw = "vim.lsp.buf.incoming_calls";
+        options.desc = "Incoming [C]alls";
+      }
+      {
+        mode = "n";
+        key = "<leader>lR";
+        action.__raw = "vim.lsp.buf.references";
+        options.desc = "[R]eferences";
+      }
+      {
+        mode = "n";
+        key = "<leader>lh";
+        action.__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
+        options.desc = "Toggle Inlay [H]ints";
+      }
+
+      # Diagnostics
+      {
+        mode = "n";
+        key = "<leader>ld";
+        action.__raw = "vim.diagnostic.open_float";
+        options.desc = "Open floating [d]iagnostic message";
+      }
+      {
+        mode = "n";
+        key = "<leader>ll";
+        action.__raw = "vim.diagnostic.setloclist";
+        options.desc = "Open diagnostics [l]ist in this buffer";
+      }
+      {
+        mode = "n";
+        key = "<leader>lD";
+        action.__raw = "vim.diagnostic.setqflist";
+        options.desc = "Open [D]iagnostics list";
+      }
+
+      # Telescope
+      {
+        mode = "n";
+        key = "<leader>ff";
+        action = "<cmd>Telescope find_files<CR>";
+        options.desc = "Find Files";
+      }
+      {
+        mode = "n";
+        key = "<leader>fg";
+        action = "<cmd>Telescope live_grep<CR>";
+        options.desc = "File Grep";
+      }
+      {
+        mode = "n";
+        key = "<leader>fr";
+        action = "<cmd>Telescope resume<CR>";
+        options.desc = "Find resume";
+      }
+      {
+        mode = "n";
+        key = "<leader>fd";
+        action = "<cmd>Telescope diagnostics<CR>";
+        options.desc = "Find Diagnostics";
+      }
+      {
+        mode = "n";
+        key = "<leader>fG";
+        action = "<cmd>Telescope git_files<CR>";
+        options.desc = "Find Git Files";
+      }
+      {
+        mode = "n";
+        key = "gd";
+        action = "<cmd>Telescope lsp_definitions<CR>";
+        options.desc = "Go to Definition";
+      }
+      {
+        mode = "n";
+        key = "gr";
+        action = "<cmd>Telescope lsp_references<CR>";
+        options.desc = "Go to References";
+      }
+      {
+        mode = "n";
+        key = "gI";
+        action = "<cmd>Telescope lsp_implementations<CR>";
+        options.desc = "Go to Implementations";
+      }
+      {
+        mode = "n";
+        key = "<leader>gt";
+        action = "<cmd>Telescope lsp_type_definitions<CR>";
+        options.desc = "Go to Type Definitions";
+      }
+      {
+        mode = "n";
+        key = "<leader>ls";
+        action = "<cmd>Telescope lsp_document_symbols<CR>";
+        options.desc = "Symbols";
+      }
+      {
+        mode = "n";
+        key = "<leader>lS";
+        action = "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>";
+        options.desc = "Workspace Symbols";
+      }
+
+      # Undotree
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = "<cmd>UndotreeToggle<CR>";
+        options.desc = "UndoTree";
+      }
+
+      # Oil additional
+      {
+        mode = "n";
+        key = "-";
+        action = "<cmd>Oil<CR>";
+        options.desc = "Open parent directory";
+      }
+    ];
+
+    # ── Plugins ──────────────────────────────────────────────────
+    plugins = {
+      # ── Telescope ──────────────────────────────────────────
+      telescope.enable = true;
+
+      # ── Blink.cmp ──────────────────────────────────────────
+      blink-cmp = {
+        enable = true;
+        settings = {
+          keymap = {
+            preset = "default";
+            "<Tab>" = [ "select_next" "fallback" ];
+            "<S-Tab>" = [ "select_prev" "fallback" ];
+            "<CR>" = [ "accept" "fallback" ];
+          };
+          appearance.nerd_font_variant = "mono";
+          completion.documentation.auto_show = false;
+          sources.default = [ "lsp" "path" "snippets" "buffer" ];
+          signature.enabled = true;
+        };
+      };
+
+      # ── LSP ────────────────────────────────────────────────
+      lsp = {
+        enable = true;
+        servers = {
+          lua_ls.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
+          ols = {
+            enable = true;
+          };
+          gopls = {
+            enable = true;
+            settings.gopls.hints = {
+              assignVariableTypes = true;
+              compositeLiteralFields = true;
+              compositeLiteralTypes = true;
+              constantValues = true;
+              functionTypeParameters = true;
+              ignoredError = true;
+              parameterNames = true;
+              rangeVariableTypes = true;
+            };
+          };
+          html = {
+            enable = true;
+            filetypes = [ "html" "templ" ];
+          };
+          tailwindcss = {
+            enable = true;
+            filetypes = [
+              "html"
+              "templ"
+              "javascriptreact"
+              "typescriptreact"
+              "vue"
+              "svelte"
+            ];
+            extraOptions.init_options.userLanguages.templ = "html";
+          };
+        };
+        inlayHints = false;
+      };
+
+      # ── Treesitter ─────────────────────────────────────────
+      treesitter = {
+        enable = true;
+        settings = {
+          highlight.enable = true;
+          indent.enable = true;
+        };
+        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+          bash
+          css
+          go
+          gomod
+          gowork
+          html
+          json
+          lua
+          markdown
+          nix
+          odin
+          python
+          rust
+          regex
+          toml
+          yaml
+          javascript
+          latex
+          scss
+          svelte
+          tsx
+          typst
+          vue
+        ];
+      };
+
+      # ── Lualine ────────────────────────────────────────────
+      lualine = {
+        enable = true;
+        settings = {
+          options = {
+            icons_enabled = true;
+            theme = "onedark";
+            component_separators = {
+              left = "";
+              right = "";
+            };
+            section_separators = {
+              left = "";
+              right = "";
+            };
+          };
+          sections = {
+            lualine_a = [ "mode" ];
+            lualine_b = [ "branch" "diff" "diagnostics" ];
+            lualine_c = [
+              {
+                __unkeyed = "filename";
+                path = 4;
+              }
+            ];
+            lualine_x = [ "encoding" "fileformat" "filetype" ];
+            lualine_y = [ "progress" ];
+            lualine_z = [ "location" ];
+          };
+        };
+      };
+
+      # ── Which-key ──────────────────────────────────────────
+      which-key = {
+        enable = true;
+        settings.spec = [
+          { __unkeyed = "<leader>f"; group = "Find"; }
+          { __unkeyed = "<leader>l"; group = "LSP"; }
+          { __unkeyed = "<leader>g"; group = "Goto"; }
+          { __unkeyed = "<leader>a"; group = "AI✨"; }
+        ];
+      };
+
+      # ── Snacks ─────────────────────────────────────────────
+      snacks = {
+        enable = true;
+        settings = {
+          indent.enabled = true;
+          image.enabled = false;
+          input.enabled = true;
+          picker.enabled = true;
+          quickfile.enabled = true;
+        };
+      };
+
+      # ── Oil ────────────────────────────────────────────────
+      oil = {
+        enable = true;
+        settings = {
+          default_file_explorer = true;
+          view_options.show_hidden = true;
+        };
+      };
+
+      # ── Nvim-surround ──────────────────────────────────────
+      nvim-surround.enable = true;
+
+      # ── Copilot ────────────────────────────────────────────
+      copilot-lua = {
+        enable = true;
+        settings = {
+          suggestion = {
+            auto_trigger = true;
+            keymap = {
+              accept = "<C-j>";
+              dismiss = "<M-j>";
+            };
+          };
+        };
+      };
+
+      # ── Undotree ───────────────────────────────────────────
+      undotree.enable = true;
+
+      # ── Diffview ───────────────────────────────────────────
+      diffview.enable = true;
+
+      # ── Todo-comments ──────────────────────────────────────
+      todo-comments = {
+        enable = true;
+        keymaps.todoTelescope.key = "<leader>ft";
+      };
+
+      # ── Web-devicons ───────────────────────────────────────
+      web-devicons.enable = true;
+    };
+
+    # ── Extra Plugins (no native nixvim module) ───────────────────
+    extraPlugins = with pkgs.vimPlugins; [
+      blamer-nvim
+      nvim-highlight-colors
+      nvim-lightbulb
+      vim-wakatime
+      render-markdown-nvim
+      typst-preview-nvim
+      image-nvim
+    ];
+
+    # ── Extra Lua Config ──────────────────────────────────────────
+    extraConfigLuaPre = ''
+      -- Inlay hints off by default
+      vim.lsp.inlay_hint.enable(false)
+
+      -- Filetype mappings
+      vim.filetype.add({
+        extension = { templ = "templ" },
+        filename = { ["Tiltfile"] = "starlark" },
+      })
+
+      -- Diagnostics
+      vim.diagnostic.config({ virtual_text = true })
+
+      -- Custom command: Shrug
+      vim.api.nvim_create_user_command("Shrug", function()
+        vim.api.nvim_put({ "¯\\_(ツ)_/¯" }, "c", true, true)
+      end, {})
+
+      -- Neovide
+      if vim.g.neovide then
+        vim.o.guifont = "FiraCode Nerd Font:h11"
+      end
+
+      -- image.nvim (only on non-WSL)
+      if vim.fn.getenv("WSL_DISTRO_NAME") == vim.NIL then
+        local ok_img, image = pcall(require, "image")
+        if ok_img then
+          image.setup()
+        end
+      end
+
+      -- nvim-highlight-colors
+      require("nvim-highlight-colors").setup({
+        render = "background",
+        enable_tailwind = true,
+      })
+
+      -- nvim-lightbulb
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true },
+        sign = { enabled = false },
+        virtual_text = {
+          enabled = true,
+          text = "💡",
+          pos = "eol",
+          hl = "LightBulbVirtualText",
+          hl_mode = "combine",
+        },
+      })
+
+    '';
   };
 }
