@@ -42,5 +42,10 @@
         };
       }
     ];
+    binds = {
+      tab.command = "complete-and-search";
+      ctrl-j.command = "forward-char";
+      ctrl-h.command = "backward-kill-path-component";
+    };
   };
 }
