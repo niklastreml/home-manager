@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-lib.mkIf config.my.isDesktop {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     wl-clipboard
     brave

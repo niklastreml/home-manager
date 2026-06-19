@@ -14,21 +14,17 @@
       pkgs = import nixpkgs { inherit system; };
     in {
       homeConfigurations = {
-        ntreml = home-manager.lib.homeManagerConfiguration {
+        vm = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            { nixpkgs.config.allowUnfree = true; }
-            ./home.nix
-          ];
-          extraSpecialArgs = { isWsl = false; };
+          modules = [ ./hosts/vm.nix ];
         };
-        "ntreml@wsl" = home-manager.lib.homeManagerConfiguration {
+        wsl = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [
-            { nixpkgs.config.allowUnfree = true; }
-            ./home.nix
-          ];
-          extraSpecialArgs = { isWsl = true; };
+          modules = [ ./hosts/wsl.nix ];
+        };
+        laptop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/laptop.nix ];
         };
       };
     };

@@ -23,6 +23,8 @@
     kind
     krew
     kubectl
+    lua5_1
+    luarocks
     ripgrep
     tmux
     tree-sitter

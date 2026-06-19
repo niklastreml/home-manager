@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-lib.mkIf config.my.isDesktop {
+{ pkgs, ... }: {
   home.file.".config/waybar/waybar.sh".source = waybar/waybar.sh;
   home.file.".config/waybar/waybar.sh".executable = true;
 
@@ -36,10 +34,10 @@ lib.mkIf config.my.isDesktop {
         "hyprland/window" = {
           format = "{}";
           rewrite = {
-            "(.*) - nvim" = "  [$1]";
-            "(.*) - fish" = "   [$1]";
-            "(.*) - bash" = "   [$1]";
-            "(.*) - zsh" = "   [$1]";
+            "(.*) - nvim" = "  [$1]";
+            "(.*) - fish" = "   [$1]";
+            "(.*) - bash" = "   [$1]";
+            "(.*) - zsh" = "   [$1]";
           };
           separate-outputs = true;
         };
@@ -74,7 +72,7 @@ lib.mkIf config.my.isDesktop {
           on-click = "reboot";
         };
         "custom/power" = {
-          format = " ";
+          format = " ";
           tooltip = false;
           on-click = "shutdown now";
         };
@@ -96,11 +94,11 @@ lib.mkIf config.my.isDesktop {
           all-outputs = false;
           format = "{icon}   {name}";
           format-icons = {
-            Browser = "";
-            Terminal = "";
-            Spotify = "";
-            urgent = "";
-            default = "";
+            Browser = "";
+            Terminal = "";
+            Spotify = "";
+            urgent = "";
+            default = "";
             active = "󱓻 ";
           };
         };
@@ -108,10 +106,10 @@ lib.mkIf config.my.isDesktop {
           format-alt = "{:%d-%m-%Y %H:%M}";
         };
         cpu = {
-          format = "{usage}% ";
+          format = "{usage}% ";
         };
         memory = {
-          format = "{}%  ";
+          format = "{}%  ";
         };
         battery = {
           bat = "BAT0";
@@ -121,40 +119,40 @@ lib.mkIf config.my.isDesktop {
           };
           format = "{capacity}% {icon}";
           format-icons = [
-            ""
-            ""
-            ""
-            ""
-            ""
+            ""
+            ""
+            ""
+            ""
+            ""
           ];
         };
         network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ifname}: {ipaddr}/{cidr} ";
           format-disconnected = "Disconnected ⚠";
           on-click = "$TERMINAL -e nmtui";
         };
         bluetooth = {
-          format = "";
+          format = "";
           format-disabled = "󰂲";
-          format-connected = "";
+          format-connected = "";
           tooltip-format = "Devices connected: {num_connections}";
           on-click = "blueberry";
         };
         pulseaudio = {
           format = "{volume}% {icon}";
-          format-bluetooth = "{volume}% {icon}";
-          format-muted = "";
+          format-bluetooth = "{volume}% {icon}";
+          format-muted = "";
           format-icons = {
-            headphones = "";
-            handsfree = "";
-            headset = "";
-            phone = "";
-            portable = "";
-            car = "";
+            headphones = "";
+            handsfree = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
             default = [
-              ""
-              ""
+              ""
+              ""
             ];
           };
           on-click = "pavucontrol";
@@ -167,13 +165,13 @@ lib.mkIf config.my.isDesktop {
           format = "{icon}";
           on-click = "$HOME/.config/waybar/powerprofile.sh toggle";
           format-icons = {
-            performance = " ";
-            balanced = " ";
-            power-saver = " ";
+            performance = " ";
+            balanced = " ";
+            power-saver = " ";
           };
         };
         "custom/spotify" = {
-          format = "   {}";
+          format = "   {}";
           max-length = 40;
           interval = 30;
           exec = "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null";
