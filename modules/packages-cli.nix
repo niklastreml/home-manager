@@ -29,6 +29,7 @@
     typst
     unzip
     vim
+    neovim
     wget
     opencode
   ];
