@@ -15,6 +15,7 @@
         ../modules/scripts.nix
         ../modules/services.nix
         ../modules/starship.nix
+        ../modules/stylix.nix
         ../modules/tmux.nix
         ../modules/waybar.nix
     ];

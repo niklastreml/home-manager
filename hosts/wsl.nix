@@ -12,6 +12,7 @@
         ../modules/packages-cli.nix
         ../modules/scripts.nix
         ../modules/starship.nix
+        ../modules/stylix.nix
         ../modules/tmux.nix
     ];
 }

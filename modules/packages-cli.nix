@@ -7,6 +7,7 @@
     bear
     bitwarden-cli
     btop
+    chafa
     cloc
     curl
     difftastic
@@ -29,6 +30,7 @@
     luarocks
     mercurial
     mermaid-cli
+    nh
     libqalculate
     ripgrep
     texliveBasic

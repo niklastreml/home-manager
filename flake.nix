@@ -10,28 +10,46 @@
       url = "github:nix-community/nixvim/nixos-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:nix-community/stylix/release-26.05";
   };
 
-  outputs = { nixpkgs, home-manager, nixvim, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      nixvim,
+      stylix,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-    in {
+    in
+    {
       homeConfigurations = {
         vm = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit nixvim; };
-          modules = [ ./hosts/vm.nix ];
-        };
-        wsl = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit nixvim; };
-          modules = [ ./hosts/wsl.nix ];
+          modules = [
+            stylix.homeModules.stylix
+            ./hosts/vm.nix
+          ];
         };
         laptop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit nixvim; };
-          modules = [ ./hosts/laptop.nix ];
+          modules = [
+            stylix.homeModules.stylix
+            ./hosts/laptop.nix
+          ];
+        };
+        wsl = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = { inherit nixvim; };
+          modules = [
+            stylix.homeModules.stylix
+            ./hosts/wsl.nix
+          ];
         };
       };
     };

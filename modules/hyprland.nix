@@ -10,20 +10,71 @@
       };
       mod._var = "SUPER";
 
-        env = [
-          { _args = [ "XCURSOR_SIZE" "10" ]; }
-          { _args = [ "HYPRCURSOR_SIZE" "10" ]; }
-          { _args = [ "LIBVA_DRIVER_NAME" "nvidia" ]; }
-          { _args = [ "__GLX_VENDOR_LIBRARY_NAME" "nvidia" ]; }
-        ];
+      env = [
+        {
+          _args = [
+            "XCURSOR_SIZE"
+            "10"
+          ];
+        }
+        {
+          _args = [
+            "HYPRCURSOR_SIZE"
+            "10"
+          ];
+        }
+        {
+          _args = [
+            "LIBVA_DRIVER_NAME"
+            "nvidia"
+          ];
+        }
+        {
+          _args = [
+            "__GLX_VENDOR_LIBRARY_NAME"
+            "nvidia"
+          ];
+        }
+      ];
 
       animation = [
-        { leaf = "windows"; enabled = true; speed = 2; bezier = "default"; }
-        { leaf = "windowsOut"; enabled = true; speed = 7; bezier = "default"; style = "popin 80%"; }
-        { leaf = "border"; enabled = true; speed = 10; bezier = "default"; }
-        { leaf = "borderangle"; enabled = true; speed = 8; bezier = "default"; }
-        { leaf = "fade"; enabled = true; speed = 7; bezier = "default"; }
-        { leaf = "workspaces"; enabled = true; speed = 1; bezier = "default"; }
+        {
+          leaf = "windows";
+          enabled = true;
+          speed = 2;
+          bezier = "default";
+        }
+        {
+          leaf = "windowsOut";
+          enabled = true;
+          speed = 7;
+          bezier = "default";
+          style = "popin 80%";
+        }
+        {
+          leaf = "border";
+          enabled = true;
+          speed = 10;
+          bezier = "default";
+        }
+        {
+          leaf = "borderangle";
+          enabled = true;
+          speed = 8;
+          bezier = "default";
+        }
+        {
+          leaf = "fade";
+          enabled = true;
+          speed = 7;
+          bezier = "default";
+        }
+        {
+          leaf = "workspaces";
+          enabled = true;
+          speed = 1;
+          bezier = "default";
+        }
       ];
 
       gesture = {
@@ -385,16 +436,24 @@
       window_rule = [
         {
           name = "clipse";
-          match = { class = "com.clipse"; };
+          match = {
+            class = "com.clipse";
+          };
           float = true;
           size = "622 652";
         }
         {
-          match = { class = ".*"; };
+          match = {
+            class = ".*";
+          };
           suppress_event = "maximize";
         }
         {
-          match = { class = "^$"; title = "^$"; xwayland = 1; };
+          match = {
+            class = "^$";
+            title = "^$";
+            xwayland = 1;
+          };
           no_focus = true;
           float = true;
           fullscreen = false;
@@ -436,17 +495,6 @@
           gaps_in = 5;
           gaps_out = 10;
           border_size = 1;
-          col = {
-            active_border = {
-              colors = [
-                "rgb(E06C75)"
-                "rgb(E5C07B)"
-                "rgb(98C379)"
-              ];
-              angle = 45;
-            };
-            inactive_border = "rgba(595959aa)";
-          };
           resize_on_border = true;
           allow_tearing = false;
           layout = "dwindle";
@@ -459,7 +507,7 @@
             enabled = true;
             range = 4;
             render_power = 3;
-            color = "rgba(1a1a1aee)";
+            # color = "rgba(1a1a1aee)";
           };
           blur = {
             enabled = true;
@@ -476,10 +524,6 @@
         };
         master = {
           new_status = "master";
-        };
-        misc = {
-          force_default_wallpaper = 1;
-          disable_hyprland_logo = false;
         };
         input = {
           kb_layout = "eu";
