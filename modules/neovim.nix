@@ -4,9 +4,6 @@
   programs.nixvim = {
     enable = true;
 
-    # ── Colorscheme ──────────────────────────────────────────────
-    colorschemes.onedark.enable = true;
-
     # ── Global Variables ─────────────────────────────────────────
     globals = {
       mapleader = " ";

@@ -4,6 +4,7 @@
 
   programs.opencode = {
     enable = true;
+    settings.autoupdate = false;
 
     settings.mcp = {
       context7 = {

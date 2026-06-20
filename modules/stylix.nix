@@ -6,6 +6,7 @@
 }:
 {
   stylix.enable = true;
+  stylix.polarity = "dark";
   stylix.image = ../assets/wallpaper.png;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
   stylix.fonts = {
