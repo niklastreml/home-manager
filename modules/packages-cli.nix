@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -39,7 +44,7 @@
     tree-sitter
     typst
     unzip
-    # utftex TODO: figure out how to get this (not in nixpkgs)
+    (callPackage ../derivations/libtexprintf.nix { }) # utftex TODO: figure out how to get this (not in nixpkgs)
     vim
     nodejs
     wget
