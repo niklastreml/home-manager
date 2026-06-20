@@ -18,6 +18,7 @@
     difftastic
     dive
     eza
+    file
     fd
     fzf
     gh
@@ -44,7 +45,7 @@
     tree-sitter
     typst
     unzip
-    (callPackage ../derivations/libtexprintf.nix { }) # utftex TODO: figure out how to get this (not in nixpkgs)
+    (callPackage ../derivations/libtexprintf.nix { })
     vim
     nodejs
     wget
