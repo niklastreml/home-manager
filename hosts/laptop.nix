@@ -7,6 +7,7 @@
         ../modules/fzf.nix
         ../modules/git.nix
         ../modules/hyprland.nix
+        ../modules/k9s.nix
         ../modules/misc-configs.nix
         ../modules/neovim.nix
         ../modules/nix.nix
