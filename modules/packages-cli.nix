@@ -20,6 +20,7 @@
     gnumake
     graphviz
     helmfile
+    home-manager
     imagemagick
     inetutils
     k9s
