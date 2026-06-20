@@ -29,6 +29,7 @@
     luarocks
     mercurial
     mermaid-cli
+    libqalculate
     ripgrep
     texliveBasic
     tmux

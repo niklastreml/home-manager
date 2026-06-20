@@ -6,7 +6,11 @@
     hyprlock
     hyprpaper
     hyprpicker
+    hyprpolkitagent
+    nautilus
     nerd-fonts.fira-code
+    playerctl
+    brightnessctl
     obsidian
     seer
     spotify

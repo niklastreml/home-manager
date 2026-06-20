@@ -238,6 +238,7 @@
       lsp = {
         enable = true;
         servers = {
+          nil_ls.enable = true;
           lua_ls.enable = true;
           rust_analyzer = {
             enable = true;
