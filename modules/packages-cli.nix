@@ -1,0 +1,47 @@
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+{
+  home.packages = with pkgs; [
+    autojump
+    bat
+    bear
+    bitwarden-cli
+    chafa
+    cloc
+    curl
+    difftastic
+    dive
+    eza
+    file
+    fd
+    gh
+    ghostscript
+    gnumake
+    graphviz
+    helmfile
+    home-manager
+    kind
+    krew
+    kubectl
+    lua5_1
+    luarocks
+    mercurial
+    mermaid-cli
+    nh
+    libqalculate
+    ripgrep
+    texliveBasic
+    tree-sitter
+    typst
+    unzip
+    (callPackage ../derivations/libtexprintf.nix { })
+    vim
+    nodejs
+    wget
+  ];
+}
