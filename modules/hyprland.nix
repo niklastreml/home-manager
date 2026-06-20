@@ -3,11 +3,6 @@
     enable = true;
     configType = "lua";
     settings = {
-      monitor = {
-        output = "";
-        mode = "preferred";
-        position = "auto";
-      };
       mod._var = "SUPER";
 
       env = [
