@@ -9,6 +9,7 @@
         ../modules/hyprland.nix
         ../modules/misc-configs.nix
         ../modules/neovim.nix
+        ../modules/opencode.nix
         # ../modules/nix.nix
         ../modules/packages-cli.nix
         ../modules/packages-gui.nix

@@ -1,10 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  # programs.opencode = {
-  #   enable = true;
-  # };
-
   # xdg.configFile."jj/config.toml".source = ./jj-config.toml;
   # xdg.configFile."k9s/config.yaml".source = ./k9s-config.yaml;
   # xdg.configFile."k9s/aliases.yaml".source = ./k9s-aliases.yaml;
