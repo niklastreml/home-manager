@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ pkgs, lib, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
@@ -11,18 +11,6 @@
       mod._var = "SUPER";
 
       env = [
-        {
-          _args = [
-            "XCURSOR_SIZE"
-            "10"
-          ];
-        }
-        {
-          _args = [
-            "HYPRCURSOR_SIZE"
-            "10"
-          ];
-        }
         {
           _args = [
             "LIBVA_DRIVER_NAME"
