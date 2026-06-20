@@ -10,7 +10,6 @@
         ../modules/k9s.nix
         ../modules/misc-configs.nix
         ../modules/neovim.nix
-        ../modules/nix.nix
         ../modules/opencode.nix
         ../modules/packages-cli.nix
         ../modules/packages-gui.nix
