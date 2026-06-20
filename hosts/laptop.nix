@@ -13,11 +13,13 @@
         ../modules/opencode.nix
         ../modules/packages-cli.nix
         ../modules/packages-gui.nix
+        ../modules/obsidian.nix
         ../modules/scripts.nix
         ../modules/services.nix
         ../modules/starship.nix
         ../modules/stylix.nix
         ../modules/tmux.nix
+        ../modules/vscode.nix
         ../modules/waybar.nix
     ];
 }

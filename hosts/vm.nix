@@ -11,6 +11,7 @@
         ../modules/misc-configs.nix
         ../modules/neovim.nix
         ../modules/opencode.nix
+        ../modules/obsidian.nix
         ../modules/packages-cli.nix
         ../modules/packages-gui.nix
         ../modules/scripts.nix
@@ -18,6 +19,7 @@
         ../modules/starship.nix
         ../modules/stylix.nix
         ../modules/tmux.nix
+        ../modules/vscode.nix
         ../modules/waybar.nix
     ];
 }
