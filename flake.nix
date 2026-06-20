@@ -22,13 +22,13 @@
       ...
     }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgsLinux = import nixpkgs { system = "x86_64-linux"; };
+      pkgsDarwin = import nixpkgs { system = "aarch64-darwin"; };
     in
     {
       homeConfigurations = {
         vm = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = pkgsLinux;
           extraSpecialArgs = { inherit nixvim; };
           modules = [
             stylix.homeModules.stylix
@@ -36,7 +36,7 @@
           ];
         };
         laptop = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = pkgsLinux;
           extraSpecialArgs = { inherit nixvim; };
           modules = [
             stylix.homeModules.stylix
@@ -44,11 +44,19 @@
           ];
         };
         wsl = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+          pkgs = pkgsLinux;
           extraSpecialArgs = { inherit nixvim; };
           modules = [
             stylix.homeModules.stylix
             ./hosts/wsl.nix
+          ];
+        };
+        macbook = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsDarwin;
+          extraSpecialArgs = { inherit nixvim; };
+          modules = [
+            stylix.homeModules.stylix
+            ./hosts/macbook.nix
           ];
         };
       };
