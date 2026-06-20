@@ -11,12 +11,9 @@
     nerd-fonts.fira-code
     playerctl
     brightnessctl
-    obsidian
     seer
     spotify
-    vscode
     walker
-    waybar
     xournalpp
   ];
 }

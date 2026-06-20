@@ -11,7 +11,6 @@
     bat
     bear
     bitwarden-cli
-    btop
     chafa
     cloc
     curl
@@ -20,16 +19,12 @@
     eza
     file
     fd
-    fzf
     gh
     ghostscript
     gnumake
     graphviz
     helmfile
     home-manager
-    imagemagick
-    inetutils
-    k9s
     kind
     krew
     kubectl
@@ -41,7 +36,6 @@
     libqalculate
     ripgrep
     texliveBasic
-    tmux
     tree-sitter
     typst
     unzip
@@ -49,6 +43,5 @@
     vim
     nodejs
     wget
-    opencode
   ];
 }

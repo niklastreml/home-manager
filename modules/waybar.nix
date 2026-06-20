@@ -1,4 +1,6 @@
 { pkgs, ... }: {
+  home.packages = [ pkgs.waybar ];
+
   home.file.".config/waybar/waybar.sh".source = waybar/waybar.sh;
   home.file.".config/waybar/waybar.sh".executable = true;
 
