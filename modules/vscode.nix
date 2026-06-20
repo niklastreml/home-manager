@@ -1,16 +1,27 @@
 { pkgs, ... }: {
+  home.packages = [ pkgs.vscode ];
+
   programs.vscode = {
     enable = true;
+    mutableExtensionsDir = false;
+
     profiles.default = {
-      mutableExtensionsDir = false;
       userSettings = {
+        "extensions.autoUpdate" = false;
+        "extensions.autoCheckUpdates" = false;
         "workbench.sideBar.location" = "right";
+        "workbench.iconTheme" = "material-icon-theme";
       };
+
       extensions =
         with pkgs.vscode-extensions;
         [
           bbenoist.nix
           vscodevim.vim
+          pkief.material-icon-theme
+          danielgavin.ols
+          ziglang.vscode-zig
+          rust-lang.rust-analyzer
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {

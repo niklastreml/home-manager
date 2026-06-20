@@ -17,5 +17,6 @@
     vscode
     walker
     waybar
+    xournalpp
   ];
 }
