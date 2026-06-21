@@ -4,7 +4,6 @@
   pkgs,
   ...
 }:
-
 {
   home.packages = with pkgs; [
     autojump
@@ -43,5 +42,9 @@
     vim
     nodejs
     wget
+  ];
+
+  imports = [
+    ./direnv.nix
   ];
 }
