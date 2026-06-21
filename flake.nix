@@ -15,12 +15,17 @@
       url = "github:nix-community/stylix/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     {
       nixpkgs,
       nixpkgs-unstable,
+      nur,
       home-manager,
       nixvim,
       stylix,
@@ -29,6 +34,9 @@
     let
       pkgsLinux = import nixpkgs { system = "x86_64-linux"; };
       pkgsDarwin = import nixpkgs { system = "aarch64-darwin"; };
+
+      nurLinux = import nur { pkgs = pkgsLinux; nurpkgs = pkgsLinux; };
+      nurDarwin = import nur { pkgs = pkgsDarwin; nurpkgs = pkgsDarwin; };
 
       pkgsUnstableLinux = import nixpkgs-unstable { system = "x86_64-linux"; };
       pkgsUnstableDarwin = import nixpkgs-unstable { system = "aarch64-darwin"; };
@@ -51,6 +59,7 @@
           extraSpecialArgs = {
             inherit nixvim;
             pkgs-unstable = pkgsUnstableLinux;
+            nur = nurLinux;
           };
           modules = [
             stylix.homeModules.stylix
@@ -62,6 +71,7 @@
           extraSpecialArgs = {
             inherit nixvim;
             pkgs-unstable = pkgsUnstableLinux;
+            nur = nurLinux;
           };
           modules = [
             stylix.homeModules.stylix
@@ -73,6 +83,7 @@
           extraSpecialArgs = {
             inherit nixvim;
             pkgs-unstable = pkgsUnstableDarwin;
+            nur = nurDarwin;
           };
           modules = [
             stylix.homeModules.stylix

@@ -36,4 +36,6 @@
     name = "Bibata-Modern-Ice";
     size = 24;
   };
+
+  stylix.targets.firefox.profileNames = [ "default" ];
 }
