@@ -101,7 +101,7 @@
             Spotify = "";
             urgent = "";
             default = "";
-            active = "B ";
+            active = "󱓻 ";
           };
         };
         clock = {
