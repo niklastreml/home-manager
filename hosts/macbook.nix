@@ -9,7 +9,7 @@
         ../modules/k9s.nix
         ../modules/misc-configs.nix
         ../modules/neovim.nix
-        ../modules/opencode.nix
+        ../modules/opencode
         ../modules/packages-cli.nix
         ../modules/scripts.nix
         ../modules/starship.nix
