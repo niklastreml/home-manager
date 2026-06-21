@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     wl-clipboard
     brave
+    easyroam-connect-desktop
     ghostty
     hyprlock
     hyprpaper

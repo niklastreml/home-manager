@@ -4,6 +4,7 @@
     ../modules/bitwarden.nix
     ../modules/browser.nix
     ../modules/btop.nix
+    ../modules/eduroam.nix
     ../modules/fish.nix
     ../modules/fzf.nix
     ../modules/git.nix
