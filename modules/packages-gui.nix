@@ -7,6 +7,7 @@
     hyprpaper
     hyprpicker
     hyprpolkitagent
+    imagemagick
     nautilus
     nerd-fonts.fira-code
     playerctl
