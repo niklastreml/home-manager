@@ -1,5 +1,8 @@
 { nixvim, ... }: {
-  imports = [ nixvim.homeModules.nixvim ];
+  imports = [
+    nixvim.homeModules.nixvim
+    ./nix-your-shell.nix
+  ];
   home.username = "ntreml";
 
   home.homeDirectory = "/home/ntreml";
