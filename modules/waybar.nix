@@ -10,6 +10,9 @@
   home.file.".config/waybar/mediaplayer.sh".source = waybar/mediaplayer.sh;
   home.file.".config/waybar/mediaplayer.sh".executable = true;
 
+  home.file.".config/waybar/toggle_wvkbd.sh".source = waybar/toggle_wvkbd.sh;
+  home.file.".config/waybar/toggle_wvkbd.sh".executable = true;
+
   programs.waybar = {
     enable = true;
     settings = {
@@ -25,6 +28,7 @@
         ];
         modules-right = [
           "custom/spotify"
+          "custom/wvkbd"
           "pulseaudio"
           "group/group-hardware"
           "network"
@@ -58,6 +62,13 @@
             "custom/reboot"
           ];
         };
+
+        "custom/wvkbd" = {
+          format = "⌨ ";
+          on-click = "$HOME/.config/waybar/toggle_wvkbd.sh";
+          tooltip = false;
+        };
+
         "custom/quit" = {
           format = "󰗼 ";
           tooltip = false;
@@ -183,77 +194,77 @@
       };
     };
     style = ''
-    @define-color foreground #abb2bf;
-    @define-color background #21252b;
-    @define-color urgent #ff5555;
+      @define-color foreground #abb2bf;
+      @define-color background #21252b;
+      @define-color urgent #ff5555;
 
-    * {
-        background-color: @background;
-        color: @foreground;
+      * {
+          background-color: @background;
+          color: @foreground;
 
-        border: none;
-        border-radius: 0;
-        min-height: 0;
-        font-family: FiraCode Nerd Font, sans-serif;
-        font-size: 12px;
-    }
+          border: none;
+          border-radius: 0;
+          min-height: 0;
+          font-family: FiraCode Nerd Font, sans-serif;
+          font-size: 12px;
+      }
 
-    .modules-left {
-        margin-left: 8px;
-    }
+      .modules-left {
+          margin-left: 8px;
+      }
 
-    .modules-right {
-        margin-right: 8px;
-    }
+      .modules-right {
+          margin-right: 8px;
+      }
 
-    #workspaces button.urgent label {
-        color: @urgent;
-    }
+      #workspaces button.urgent label {
+          color: @urgent;
+      }
 
-    #workspaces button {
-        all: initial;
-        padding: 0 6px;
-        margin: 0 1.5px;
-        min-width: 9px;
-    }
+      #workspaces button {
+          all: initial;
+          padding: 0 6px;
+          margin: 0 1.5px;
+          min-width: 9px;
+      }
 
-    #workspaces button.empty {
-        opacity: 0.5;
-    }
+      #workspaces button.empty {
+          opacity: 0.5;
+      }
 
-    #tray,
-    #cpu,
-    #battery,
-    #network,
-    #bluetooth,
-    #pulseaudio {
-        min-width: 12px;
-        margin: 0 7.5px;
-    }
+      #tray,
+      #cpu,
+      #battery,
+      #network,
+      #bluetooth,
+      #pulseaudio {
+          min-width: 12px;
+          margin: 0 7.5px;
+      }
 
-    tooltip {
-        padding: 2px;
-    }
+      tooltip {
+          padding: 2px;
+      }
 
-    #clock {
-        margin-left: 8.75px;
-    }
+      #clock {
+          margin-left: 8.75px;
+      }
 
-    .hidden {
-        opacity: 0;
-    }
+      .hidden {
+          opacity: 0;
+      }
 
-    #group-hardware {
-        margin: 0 7.5px;
-    }
+      #group-hardware {
+          margin: 0 7.5px;
+      }
 
-    #not-hardware {
-        margin: 0 7.5px;
-    }
+      #not-hardware {
+          margin: 0 7.5px;
+      }
 
-    #group-power{
-        margin-left: 15px;
-    }
+      #group-power{
+          margin-left: 15px;
+      }
     '';
   };
 }

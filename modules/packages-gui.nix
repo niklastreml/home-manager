@@ -16,6 +16,7 @@
     seer
     spotify
     walker
+    wvkbd
     xournalpp
   ];
 }
