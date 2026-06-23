@@ -1,4 +1,5 @@
 { pkgs, lib, ... }: {
+  home.packages = [ pkgs.rot8 ];
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";
@@ -451,6 +452,7 @@
             (lib.generators.mkLuaInline ''
               function()
                 hl.exec_cmd("clipse -listen")
+                hl.exec_cmd("rot8")
                 hl.exec_cmd("elephant")
                 hl.exec_cmd("walker --gapplication-service")
                 hl.exec_cmd("batsignal")
