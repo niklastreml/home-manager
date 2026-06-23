@@ -1,7 +1,14 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  aislop,
+  ...
+}:
 
 {
   home.packages = [ pkgs-unstable.opencode ];
+
+  home.file.".config/opencode/skills".source = "${aislop}/skills";
 
   programs.opencode = {
     enable = true;

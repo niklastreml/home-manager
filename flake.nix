@@ -19,6 +19,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    aislop = {
+      url = "github:mattpocock/skills";
+      flake = false; # if it's not a flake
+    };
   };
 
   outputs =
@@ -29,14 +33,21 @@
       home-manager,
       nixvim,
       stylix,
+      aislop,
       ...
     }:
     let
       pkgsLinux = import nixpkgs { system = "x86_64-linux"; };
       pkgsDarwin = import nixpkgs { system = "aarch64-darwin"; };
 
-      nurLinux = import nur { pkgs = pkgsLinux; nurpkgs = pkgsLinux; };
-      nurDarwin = import nur { pkgs = pkgsDarwin; nurpkgs = pkgsDarwin; };
+      nurLinux = import nur {
+        pkgs = pkgsLinux;
+        nurpkgs = pkgsLinux;
+      };
+      nurDarwin = import nur {
+        pkgs = pkgsDarwin;
+        nurpkgs = pkgsDarwin;
+      };
 
       pkgsUnstableLinux = import nixpkgs-unstable { system = "x86_64-linux"; };
       pkgsUnstableDarwin = import nixpkgs-unstable { system = "aarch64-darwin"; };
@@ -46,6 +57,7 @@
         vm = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
+            aislop = aislop;
             inherit nixvim;
             pkgs-unstable = pkgsUnstableLinux;
           };
@@ -57,6 +69,7 @@
         laptop = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
+            aislop = aislop;
             inherit nixvim;
             pkgs-unstable = pkgsUnstableLinux;
             nur = nurLinux;
@@ -69,6 +82,7 @@
         wsl = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
+            aislop = aislop;
             inherit nixvim;
             pkgs-unstable = pkgsUnstableLinux;
             nur = nurLinux;
@@ -81,6 +95,7 @@
         macbook = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsDarwin;
           extraSpecialArgs = {
+            aislop = aislop;
             inherit nixvim;
             pkgs-unstable = pkgsUnstableDarwin;
             nur = nurDarwin;
