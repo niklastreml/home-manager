@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  home.packages = [ pkgs.waybar ];
+  home.packages = [ pkgs.waybar pkgs.hyprshutdown ];
 
   home.file.".config/waybar/waybar.sh".source = waybar/waybar.sh;
   home.file.".config/waybar/waybar.sh".executable = true;
@@ -72,7 +72,7 @@
         "custom/quit" = {
           format = "󰗼 ";
           tooltip = false;
-          on-click = "hyprctl dispatch exit";
+          on-click = "hyprshutdown";
         };
         "custom/lock" = {
           format = "󰍁 ";

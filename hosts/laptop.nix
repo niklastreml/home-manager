@@ -31,4 +31,10 @@
     position = "auto";
     scale = 2;
   };
+
+  programs.nh = {
+    enable = true;
+    # Sets the directory path for the FLAKE environment variable
+    homeFlake = "/home/ntreml/code/home-manager#homeConfigurations.laptop";
+  };
 }

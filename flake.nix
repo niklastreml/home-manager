@@ -54,7 +54,7 @@
     in
     {
       homeConfigurations = {
-        vm = home-manager.lib.homeManagerConfiguration {
+        "ntreml@vm" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
             aislop = aislop;
@@ -66,7 +66,7 @@
             ./hosts/vm.nix
           ];
         };
-        laptop = home-manager.lib.homeManagerConfiguration {
+        "ntreml@laptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
             aislop = aislop;
@@ -79,7 +79,7 @@
             ./hosts/laptop.nix
           ];
         };
-        wsl = home-manager.lib.homeManagerConfiguration {
+        "ntreml@wsl" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
             aislop = aislop;
@@ -92,7 +92,7 @@
             ./hosts/wsl.nix
           ];
         };
-        macbook = home-manager.lib.homeManagerConfiguration {
+        "ntreml@macbook" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsDarwin;
           extraSpecialArgs = {
             aislop = aislop;
