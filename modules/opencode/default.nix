@@ -14,7 +14,6 @@
     enable = true;
     settings.autoupdate = false;
     package = pkgs-unstable.opencode; # Tells the module to use the updated version
-
     settings.mcp = {
       context7 = {
         type = "remote";

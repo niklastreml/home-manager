@@ -13,7 +13,7 @@
       {
         condition = "gitdir:~/work/";
         contents = {
-          user.email = "niklas.treml@telekom.de";
+          user.email = "4383-niklas.treml@users.noreply.gitlab.devops.telekom.de";
         };
       }
       {
