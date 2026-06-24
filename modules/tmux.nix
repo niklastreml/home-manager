@@ -9,10 +9,11 @@
     keyMode = "vi";
     mouse = true;
     focusEvents = true;
-    terminal = "screen-256color";
+    terminal = "tmux-256color";
     extraConfig = ''
       set -g allow-passthrough on
       set -g visual-activity off
+      set-option -sa terminal-overrides ",xterm*:Tc"
     '';
 
   };
