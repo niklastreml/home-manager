@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -13,7 +11,6 @@
     globals = {
       mapleader = " ";
       maplocalleader = "\\";
-      blamer_enabled = true;
     };
 
     # ── Editor Options ───────────────────────────────────────────
@@ -212,12 +209,88 @@
         action = "<cmd>Oil<CR>";
         options.desc = "Open parent directory";
       }
+
+      # Neogit and other git stuff
+      {
+        mode = "n";
+        key = "<leader>gg";
+        action = "<cmd>Neogit<CR>";
+        options = {
+          desc = "Open Neogit";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>gc";
+        action = "<cmd>Neogit commit<CR>";
+        options = {
+          desc = "Neogit Commit";
+          silent = true;
+        };
+      }
+
+      {
+        mode = "v"; # 'v' for visual mode selection
+        key = "<leader>gs";
+        action = "<cmd>Gitsigns stage_hunk<CR>";
+        options.desc = "Stage Selected Lines";
+      }
+
+      # Tab management
+      {
+        mode = "n";
+        key = "<leader>tc";
+        action = "<cmd>tabclose<CR>";
+        options = {
+          desc = "[T]ab [C]lose";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>tn";
+        action = "<cmd>tabn<CR>";
+        options = {
+          desc = "[T]ab [N]ext";
+          silent = true;
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>tp";
+        action = "<cmd>tabp<CR>";
+        options = {
+          desc = "[T]ab [P]revious";
+          silent = true;
+        };
+      }
     ];
 
     # ── Plugins ──────────────────────────────────────────────────
     plugins = {
       # ── Telescope ──────────────────────────────────────────
       telescope.enable = true;
+      # ── GitSigns ──────────────────────────────────────────
+      gitsigns = {
+        enable = true;
+        settings = {
+          signcolumn = true;
+          current_line_blame = true;
+        };
+      };
+
+      # ── Neogit ──────────────────────────────────────────
+      neogit = {
+        enable = true;
+
+        settings = {
+          integrations = {
+            diffview = true;
+          };
+          disable_insert_after_commit = false;
+        };
+      };
 
       # ── Blink.cmp ──────────────────────────────────────────
       blink-cmp = {
@@ -385,6 +458,10 @@
             group = "Find";
           }
           {
+            __unkeyed = "<leader>t";
+            group = "Tabs";
+          }
+          {
             __unkeyed = "<leader>l";
             group = "LSP";
           }
@@ -455,7 +532,6 @@
 
     # ── Extra Plugins (no native nixvim module) ───────────────────
     extraPlugins = with pkgs.vimPlugins; [
-      blamer-nvim
       nvim-highlight-colors
       nvim-lightbulb
       vim-wakatime
