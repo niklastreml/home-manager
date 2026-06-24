@@ -311,8 +311,11 @@
               "fallback"
             ];
           };
-          appearance.nerd_font_variant = "mono";
-          completion.documentation.auto_show = false;
+          # appearance.nerd_font_variant = "mono";
+          completion = {
+            documentation.auto_show = false;
+            accept.auto_brackets.enabled = true;
+          };
           sources.default = [
             "lsp"
             "path"
@@ -528,6 +531,14 @@
 
       # ── Web-devicons ───────────────────────────────────────
       web-devicons.enable = true;
+
+      # ── autpairs ───────────────────────────────────────
+      nvim-autopairs = {
+        enable = true;
+        settings = {
+          check_ts = true;
+        };
+      };
     };
 
     # ── Extra Plugins (no native nixvim module) ───────────────────
