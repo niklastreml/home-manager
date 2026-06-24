@@ -20,6 +20,7 @@
     fd
     gh
     ghostscript
+    glab
     gnumake
     graphviz
     helmfile

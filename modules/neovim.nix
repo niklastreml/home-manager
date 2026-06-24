@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.nixvim = {
@@ -220,13 +225,27 @@
         settings = {
           keymap = {
             preset = "default";
-            "<Tab>" = [ "select_next" "fallback" ];
-            "<S-Tab>" = [ "select_prev" "fallback" ];
-            "<CR>" = [ "accept" "fallback" ];
+            "<Tab>" = [
+              "select_next"
+              "fallback"
+            ];
+            "<S-Tab>" = [
+              "select_prev"
+              "fallback"
+            ];
+            "<CR>" = [
+              "accept"
+              "fallback"
+            ];
           };
           appearance.nerd_font_variant = "mono";
           completion.documentation.auto_show = false;
-          sources.default = [ "lsp" "path" "snippets" "buffer" ];
+          sources.default = [
+            "lsp"
+            "path"
+            "snippets"
+            "buffer"
+          ];
           signature.enabled = true;
         };
       };
@@ -235,6 +254,8 @@
       lsp = {
         enable = true;
         servers = {
+          bashls.enable = true;
+
           nil_ls.enable = true;
           lua_ls.enable = true;
           rust_analyzer = {
@@ -260,7 +281,10 @@
           };
           html = {
             enable = true;
-            filetypes = [ "html" "templ" ];
+            filetypes = [
+              "html"
+              "templ"
+            ];
           };
           tailwindcss = {
             enable = true;
@@ -330,14 +354,22 @@
           };
           sections = {
             lualine_a = [ "mode" ];
-            lualine_b = [ "branch" "diff" "diagnostics" ];
+            lualine_b = [
+              "branch"
+              "diff"
+              "diagnostics"
+            ];
             lualine_c = [
               {
                 __unkeyed = "filename";
                 path = 4;
               }
             ];
-            lualine_x = [ "encoding" "fileformat" "filetype" ];
+            lualine_x = [
+              "encoding"
+              "fileformat"
+              "filetype"
+            ];
             lualine_y = [ "progress" ];
             lualine_z = [ "location" ];
           };
@@ -348,10 +380,22 @@
       which-key = {
         enable = true;
         settings.spec = [
-          { __unkeyed = "<leader>f"; group = "Find"; }
-          { __unkeyed = "<leader>l"; group = "LSP"; }
-          { __unkeyed = "<leader>g"; group = "Goto"; }
-          { __unkeyed = "<leader>a"; group = "AI✨"; }
+          {
+            __unkeyed = "<leader>f";
+            group = "Find";
+          }
+          {
+            __unkeyed = "<leader>l";
+            group = "LSP";
+          }
+          {
+            __unkeyed = "<leader>g";
+            group = "Goto";
+          }
+          {
+            __unkeyed = "<leader>a";
+            group = "AI✨";
+          }
         ];
       };
 
