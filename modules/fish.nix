@@ -11,6 +11,12 @@
     # interactiveShellInit = ''
     # fenv source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
     # '';
+    shellInit = ''
+      # Load secrets if the file exists
+      if test -f ~/.env.fish
+        source ~/.env.fish
+      end
+    '';
     shellAbbrs = {
       gcsm = "git commit --signoff --message";
     };
