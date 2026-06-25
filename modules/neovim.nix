@@ -549,6 +549,15 @@
       render-markdown-nvim
       typst-preview-nvim
       image-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "atlas";
+        src = pkgs.fetchFromGitHub {
+          owner = "niklastreml";
+          repo = "atlas.nvim";
+          rev = "b040ccf80c04ff2c5741f49b73f419c6097e0704";
+          hash = "sha256-5cEsp2mCEEjhuKVTnQxGDtWCj3R8v+pAtyco22clOTc=";
+        };
+      })
     ];
 
     # ── Extra Lua Config ──────────────────────────────────────────
@@ -602,6 +611,51 @@
         },
       })
 
+      require("atlas").setup({
+        pulls = {
+          providers = {
+            ---@type AtlasGitHubConfig
+            github = {},    -- See configuration below
+            ---@type AtlasGitLabPullsConfig
+            gitlab = {},    -- See configuration below
+          },
+        },
+        issues = {
+          providers = {
+            ---@type AtlasGitHubIssuesConfig
+            github = {}, -- See configuration below
+            ---@type AtlasGitLabIssuesConfig
+            gitlab = {
+              base_url = "https://gitlab.devops.telekom.de",
+              token = os.getenv("GITLAB_TOKEN") or "",
+              cache_ttl = 300,
+              ---@type AtlasGitLabIssuesViewConfig[]
+              views = {
+                {
+                  name = "Assigned",
+                  key = "1",
+                  scope = "assigned_to_me",
+                  state = "opened",
+                },
+                {
+                  name = "Created",
+                  key = "2",
+                  scope = "created_by_me",
+                  state = "opened",
+                },
+                {
+                  name = "All open",
+                  key = "3",
+                  scope = "all",
+                  state = "opened",
+                  -- Anything not covered by the explicit fields below can be passed via `extra_params`.
+                  extra_params = { ["not[labels]"] = "wontfix" },
+                },
+              },
+            }, -- See configuration below
+          },
+        },
+      })
     '';
   };
 }
