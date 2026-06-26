@@ -1,4 +1,7 @@
-{ config, lib, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   home.packages = [ pkgs.tmux ];
@@ -14,6 +17,7 @@
       set -g allow-passthrough on
       set -g visual-activity off
       set-option -sa terminal-overrides ",xterm*:Tc"
+      set -g extended-keys on
     '';
 
   };

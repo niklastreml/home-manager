@@ -617,7 +617,11 @@
             ---@type AtlasGitHubConfig
             github = {},    -- See configuration below
             ---@type AtlasGitLabPullsConfig
-            gitlab = {},    -- See configuration below
+            gitlab = {
+              base_url = "https://gitlab.devops.telekom.de",
+              token = os.getenv("GITLAB_TOKEN") or "",
+              cache_ttl = 300,
+            },
           },
         },
         issues = {
