@@ -11,6 +11,7 @@
         ../modules/neovim.nix
         ../modules/opencode
         ../modules/packages-cli.nix
+        ../modules/pi
         ../modules/scripts.nix
         ../modules/starship.nix
         ../modules/stylix.nix

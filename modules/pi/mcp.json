@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "exa": {
+      "url": "https://mcp.exa.ai/mcp"
+    },
+    "morph": {
+      "command": "bunx",
+      "args": ["@morphllm/morphmcp"],
+      "env": {
+        "ENABLED_TOOLS": "warp_grep"
+      }
+    }
+  }
+}
