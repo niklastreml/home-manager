@@ -1,19 +1,18 @@
 {
   pkgs,
-  pkgs-unstable,
   aislop,
   ...
 }:
 
 {
-  home.packages = [ pkgs-unstable.opencode ];
+  home.packages = [ pkgs.opencode ];
 
   home.file.".config/opencode/skills".source = "${aislop}/skills";
 
   programs.opencode = {
     enable = true;
     settings.autoupdate = false;
-    package = pkgs-unstable.opencode; # Tells the module to use the updated version
+    package = pkgs.opencode; # Tells the module to use the updated version
     settings.mcp = {
       context7 = {
         type = "remote";

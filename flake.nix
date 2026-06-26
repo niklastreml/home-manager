@@ -1,18 +1,15 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-
+    nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-26.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim/main";
     };
     stylix = {
-      url = "github:nix-community/stylix/release-26.05";
+      url = "github:nix-community/stylix/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
@@ -21,14 +18,13 @@
     };
     aislop = {
       url = "github:mattpocock/skills";
-      flake = false; # if it's not a flake
+      flake = false;
     };
   };
 
   outputs =
     {
       nixpkgs,
-      nixpkgs-unstable,
       nur,
       home-manager,
       nixvim,
@@ -48,9 +44,6 @@
         pkgs = pkgsDarwin;
         nurpkgs = pkgsDarwin;
       };
-
-      pkgsUnstableLinux = import nixpkgs-unstable { system = "x86_64-linux"; };
-      pkgsUnstableDarwin = import nixpkgs-unstable { system = "aarch64-darwin"; };
     in
     {
       homeConfigurations = {
@@ -59,7 +52,6 @@
           extraSpecialArgs = {
             aislop = aislop;
             inherit nixvim;
-            pkgs-unstable = pkgsUnstableLinux;
           };
           modules = [
             stylix.homeModules.stylix
@@ -71,7 +63,6 @@
           extraSpecialArgs = {
             aislop = aislop;
             inherit nixvim;
-            pkgs-unstable = pkgsUnstableLinux;
             nur = nurLinux;
           };
           modules = [
@@ -84,7 +75,6 @@
           extraSpecialArgs = {
             aislop = aislop;
             inherit nixvim;
-            pkgs-unstable = pkgsUnstableLinux;
             nur = nurLinux;
           };
           modules = [
@@ -97,7 +87,6 @@
           extraSpecialArgs = {
             aislop = aislop;
             inherit nixvim;
-            pkgs-unstable = pkgsUnstableDarwin;
             nur = nurDarwin;
           };
           modules = [
