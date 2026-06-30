@@ -552,10 +552,10 @@
       (pkgs.vimUtils.buildVimPlugin {
         name = "atlas";
         src = pkgs.fetchFromGitHub {
-          owner = "niklastreml";
+          owner = "emrearmagan";
           repo = "atlas.nvim";
-          rev = "b040ccf80c04ff2c5741f49b73f419c6097e0704";
-          hash = "sha256-5cEsp2mCEEjhuKVTnQxGDtWCj3R8v+pAtyco22clOTc=";
+          rev = "1605bcb4b5c968b4c9f2a842da2e242d23627a3f";
+          hash = "sha256-Gq7xOMzNU9TjkXAn6MbBrHg5iSk4qCeC/9Tv0vHnyrE=";
         };
       })
     ];
