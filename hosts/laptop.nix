@@ -15,6 +15,7 @@
     ../modules/opencode
     ../modules/packages-cli.nix
     ../modules/packages-gui.nix
+    ../modules/pi
     ../modules/obsidian.nix
     ../modules/scripts.nix
     ../modules/services.nix
@@ -37,4 +38,6 @@
     # Sets the directory path for the FLAKE environment variable
     homeFlake = "/home/ntreml/code/home-manager#homeConfigurations.laptop";
   };
+  programs.pi-coding-agent.settings.defaultModel = "deepseek/deepseek-v4-pro";
+  programs.pi-coding-agent.settings.defaultProvider = "openrouter";
 }

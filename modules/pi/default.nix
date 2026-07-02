@@ -7,14 +7,12 @@
     enable = true;
     settings = {
       enableInstallTelemetry = false;
-      defaultProvider = "github-copilot";
-      defaultThinkingLevel = "medium";
-      defaultModel = "claude-opus-4.8";
       packages = [
         "npm:context-mode"
         "npm:pi-subagents"
-        "npm:@plannotator/pi-extension"
         "npm:pi-mcp-adapter"
+        "npm:pi-undo-redo"
+        "npm:@plannotator/pi-extension"
       ];
     };
     extraPackages = [

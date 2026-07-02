@@ -267,6 +267,7 @@
       }
     ];
 
+    performance.byteCompileLua.enable = true;
     # ── Plugins ──────────────────────────────────────────────────
     plugins = {
       # ── Telescope ──────────────────────────────────────────
@@ -330,6 +331,12 @@
       lsp = {
         enable = true;
         servers = {
+          markdown_oxide.enable = true;
+          yamlls.enable = true;
+          helm_ls.enable = true;
+          gitlab_ci_ls.enable = true;
+          dockerls.enable = true;
+          clangd.enable = true;
           bashls.enable = true;
 
           nil_ls.enable = true;
