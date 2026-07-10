@@ -547,6 +547,19 @@
           check_ts = true;
         };
       };
+
+      dap = {
+        enable = true;
+      };
+      dap-go.enable = true;
+      dap-lldb = {
+        enable = true;
+        settings.codelldb_path = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+      };
+      dap-ui = {
+        enable = true;
+      };
+
     };
 
     # ── Extra Plugins (no native nixvim module) ───────────────────
