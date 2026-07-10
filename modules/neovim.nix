@@ -266,6 +266,104 @@
           silent = true;
         };
       }
+
+      # DAP - Debugging
+      {
+        mode = "n";
+        key = "<leader>db";
+        action.__raw = "require('dap').toggle_breakpoint";
+        options.desc = "Toggle [B]reakpoint";
+      }
+      {
+        mode = "n";
+        key = "<F9>";
+        action.__raw = "require('dap').toggle_breakpoint";
+        options.desc = "Toggle Breakpoint";
+      }
+      {
+        mode = "n";
+        key = "<leader>dB";
+        action.__raw = "function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end";
+        options.desc = "Breakpoint with condition";
+      }
+      {
+        mode = "n";
+        key = "<leader>dc";
+        action.__raw = "require('dap').continue";
+        options.desc = "[C]ontinue";
+      }
+      {
+        mode = "n";
+        key = "<F5>";
+        action.__raw = "require('dap').continue";
+        options.desc = "Continue";
+      }
+      {
+        mode = "n";
+        key = "<leader>di";
+        action.__raw = "require('dap').step_into";
+        options.desc = "Step [I]nto";
+      }
+      {
+        mode = "n";
+        key = "<F11>";
+        action.__raw = "require('dap').step_into";
+        options.desc = "Step Into";
+      }
+      {
+        mode = "n";
+        key = "<leader>do";
+        action.__raw = "require('dap').step_over";
+        options.desc = "Step [O]ver";
+      }
+      {
+        mode = "n";
+        key = "<F10>";
+        action.__raw = "require('dap').step_over";
+        options.desc = "Step Over";
+      }
+      {
+        mode = "n";
+        key = "<leader>dO";
+        action.__raw = "require('dap').step_out";
+        options.desc = "Step O[u]t";
+      }
+      {
+        mode = "n";
+        key = "<S-F11>";
+        action.__raw = "require('dap').step_out";
+        options.desc = "Step Out";
+      }
+      {
+        mode = "n";
+        key = "<leader>dr";
+        action.__raw = "require('dap').repl.open";
+        options.desc = "Open [R]EPL";
+      }
+      {
+        mode = "n";
+        key = "<leader>dt";
+        action.__raw = "require('dap').terminate";
+        options.desc = "[T]erminate";
+      }
+      {
+        mode = "n";
+        key = "<leader>du";
+        action.__raw = "require('dapui').toggle";
+        options.desc = "Toggle DAP [U]I";
+      }
+      {
+        mode = "n";
+        key = "<leader>de";
+        action.__raw = "require('dapui').eval";
+        options.desc = "[E]valuate expression";
+      }
+      {
+        mode = "v";
+        key = "<leader>de";
+        action.__raw = "require('dapui').eval";
+        options.desc = "[E]valuate selection";
+      }
     ];
 
     performance.byteCompileLua.enable = true;
@@ -484,6 +582,10 @@
             __unkeyed = "<leader>a";
             group = "AI✨";
           }
+          {
+            __unkeyed = "<leader>d";
+            group = "Debug";
+          }
         ];
       };
 
@@ -550,6 +652,29 @@
 
       dap = {
         enable = true;
+        signs = {
+          dapBreakpoint = {
+            text = "🔴";
+            texthl = "DiagnosticError";
+            numhl = "DiagnosticError";
+          };
+          dapBreakpointCondition = {
+            text = "🟡";
+            texthl = "DiagnosticWarn";
+            numhl = "DiagnosticWarn";
+          };
+          dapStopped = {
+            text = "▶️";
+            texthl = "DiagnosticOk";
+            linehl = "Visual";
+            numhl = "DiagnosticOk";
+          };
+          dapBreakpointRejected = {
+            text = "⭕";
+            texthl = "Comment";
+            numhl = "Comment";
+          };
+        };
       };
       dap-go.enable = true;
       dap-lldb = {
