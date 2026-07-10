@@ -25,6 +25,7 @@
       expandtab = true;
       tabstop = 8;
       softtabstop = 0;
+      cmdheight = 0;
       conceallevel = 1;
       linebreak = true;
       colorcolumn = "100";

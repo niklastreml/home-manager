@@ -3,7 +3,7 @@
 
   programs.vscode = {
     enable = true;
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
 
     profiles.default = {
       userSettings = {
@@ -22,14 +22,10 @@
           danielgavin.ols
           ziglang.vscode-zig
           rust-lang.rust-analyzer
+          vadimcn.vscode-lldb
+          ms-vscode.hexeditor
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          {
-            name = "vscode-lldb";
-            publisher = "vadimcn";
-            version = "1.12.2";
-            sha256 = "sha256-cOOClC0uE+Ym10k2T2p/mnTcgqvLVwDH+qo/W7ul3cs=";
-          }
           {
             name = "Go";
             publisher = "golang";
