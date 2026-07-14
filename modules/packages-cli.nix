@@ -15,6 +15,7 @@
     curl
     difftastic
     dive
+    dnsutils
     eza
     file
     fd
@@ -24,6 +25,8 @@
     gnumake
     graphviz
     helmfile
+    jq
+    kubernetes-helm
     home-manager
     kind
     krew
@@ -32,6 +35,7 @@
     luarocks
     mercurial
     mermaid-cli
+    net-tools
     nh
     libqalculate
     ripgrep
