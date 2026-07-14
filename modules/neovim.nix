@@ -448,6 +448,7 @@
           ols = {
             enable = true;
           };
+          jsonls.enable = true;
           gopls = {
             enable = true;
             settings.gopls.hints = {
@@ -759,6 +760,12 @@
 
       require("atlas").setup({
         pulls = {
+          repo_config = {
+            -- Maps `workspace/repo` to local paths. Used for checkout and custom actions.
+            paths = {
+              ["caas/*"] = "~/work/caas/*",
+            },
+          },
           providers = {
             ---@type AtlasGitHubConfig
             github = {},    -- See configuration below

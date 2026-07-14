@@ -12,6 +12,10 @@
       "env": {
         "ENABLED_TOOLS": "warp_grep"
       }
+    },
+    "nixos": {
+      "command": "nix",
+      "args": ["run", "github:utensils/mcp-nixos", "--"]
     }
   }
 }

@@ -19,7 +19,6 @@
   ];
 
   programs.pi-coding-agent.settings.defaultModel = "claude-opus-4.8";
-  programs.pi-coding-agent.settings.defaultProvider = "openrouter";
-  defaultProvider = "github-copilot";
-
+  programs.pi-coding-agent.settings.defaultProvider = "github-copilot";
+  home.sessionVariables.GOPRIVATE = "gitlab.devops.telekom.de/*";
 }
