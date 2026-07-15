@@ -1,0 +1,21 @@
+{
+  // pi-control policy: require interactive approval before ANY git or kubectl
+  // command runs. Everything else is allowed. Applied everywhere via
+  // defaultPolicy (used when no location matches).
+  //
+  // "ask" shows a confirmation prompt before execution. In non-interactive
+  // modes (pi -p / --mode json) there is no one to approve, so the call
+  // fails closed (blocked) — the safe default.
+  "policies": {
+    "approval": {
+      "defaultAction": "allow",
+      "rules": [
+        { "action": "ask", "tool": "bash", "pattern": "git" },
+        { "action": "ask", "tool": "bash", "pattern": "git *" },
+        { "action": "ask", "tool": "bash", "pattern": "kubectl" },
+        { "action": "ask", "tool": "bash", "pattern": "kubectl *" }
+      ]
+    }
+  },
+  "defaultPolicy": "approval"
+}
