@@ -453,7 +453,7 @@
               function()
                 hl.exec_cmd("clipse -listen")
                 hl.exec_cmd("rot8")
-                hl.exec_cmd("elephant")
+                hl.exec_cmd("bash -l -c elephant")
                 hl.exec_cmd("walker --gapplication-service")
                 hl.exec_cmd("batsignal")
                 hl.exec_cmd("hyprpaper")

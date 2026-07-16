@@ -22,6 +22,7 @@
     extraPackages = [
       pkgs.nodejs
       pkgs.bun
+      pkgs.clang
       pkgs.python315
       pkgs.uv
     ];
