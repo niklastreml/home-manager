@@ -451,14 +451,15 @@
             "hyprland.start"
             (lib.generators.mkLuaInline ''
               function()
-                hl.exec_cmd("clipse -listen")
-                hl.exec_cmd("rot8")
-                hl.exec_cmd("bash -l -c elephant")
-                hl.exec_cmd("walker --gapplication-service")
-                hl.exec_cmd("batsignal")
-                hl.exec_cmd("hyprpaper")
-                hl.exec_cmd("systemctl --user start hyprpolkitagent")
-                hl.exec_cmd("~/.config/waybar/waybar.sh")
+                -- hl.exec_cmd("clipse -listen")
+                -- hl.exec_cmd("rot8")
+                -- hl.exec_cmd("bash -l -c elephant")
+                -- hl.exec_cmd("walker --gapplication-service")
+                -- hl.exec_cmd("batsignal")
+                -- hl.exec_cmd("hyprpaper")
+                -- hl.exec_cmd("systemctl --user start hyprpolkitagent")
+                -- hl.exec_cmd("~/.config/waybar/waybar.sh")
+                hl.exec_cmd("noctalia")
               end
             '')
           ];

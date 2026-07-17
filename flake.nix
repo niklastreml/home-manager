@@ -20,6 +20,15 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
+  };
+
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
   };
 
   outputs =
@@ -30,6 +39,7 @@
       nixvim,
       stylix,
       aislop,
+      noctalia,
       ...
     }:
     let
@@ -67,6 +77,7 @@
           };
           modules = [
             stylix.homeModules.stylix
+            noctalia.homeModules.default
             ./hosts/laptop.nix
           ];
         };

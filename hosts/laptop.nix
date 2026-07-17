@@ -11,7 +11,9 @@
     ../modules/hyprland.nix
     ../modules/k9s.nix
     ../modules/misc-configs.nix
+    ../modules/nix.nix
     ../modules/neovim.nix
+    ../modules/noctalia.nix
     ../modules/opencode
     ../modules/packages-cli.nix
     ../modules/packages-gui.nix
