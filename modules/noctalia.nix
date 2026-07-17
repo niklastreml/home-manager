@@ -3,6 +3,9 @@
     enable = true;
 
     settings = {
+      # ---- Wallpaper (disabled — Stylix manages it) ----
+      wallpaper.enabled = false;
+
       # ---- Bar Configuration ----
       bar.order = [ "main" ];
 
