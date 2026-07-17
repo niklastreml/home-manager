@@ -1,10 +1,17 @@
 { ... }: {
+  home.file.".face" = {
+    source = ../assets/face.png; # Path relative to your home.nix
+  };
+
   programs.noctalia = {
     enable = true;
 
     settings = {
       # ---- Wallpaper (disabled — Stylix manages it) ----
       wallpaper.enabled = false;
+
+      location.auto_locate = true;
+      shell.avatar_path = "~/.face";
 
       # ---- Bar Configuration ----
       bar.order = [ "main" ];
