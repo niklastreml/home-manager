@@ -20,6 +20,5 @@
         ../modules/stylix.nix
         ../modules/tmux.nix
         ../modules/vscode.nix
-        ../modules/waybar.nix
     ];
 }

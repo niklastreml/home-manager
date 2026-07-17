@@ -95,7 +95,7 @@
         {
           _args = [
             (lib.generators.mkLuaInline "mod .. \" + D\"")
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"walker\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg panel-toggle launcher\")")
           ];
         }
         {
@@ -137,13 +137,13 @@
         {
           _args = [
             (lib.generators.mkLuaInline "mod .. \" + V\"")
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"ghostty --class=com.clipse -e 'clipse'\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg panel-toggle clipboard\")")
           ];
         }
         {
           _args = [
             (lib.generators.mkLuaInline "mod .. \" + CTRL + L\"")
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"hyprlock\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg session lock\")")
           ];
         }
         {
@@ -348,70 +348,70 @@
         {
           _args = [
             "XF86AudioRaiseVolume"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg volume-up\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86AudioLowerVolume"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg volume-down\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86AudioMute"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg volume-mute\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86AudioMicMute"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg mic-mute\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86MonBrightnessUp"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"brightnessctl s 10%+\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg brightness-up\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86MonBrightnessDown"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"brightnessctl s 10%-\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg brightness-down\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
           ];
         }
         {
           _args = [
             "XF86AudioNext"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"playerctl next\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg media next\")")
             (lib.generators.mkLuaInline "{ locked = true }")
           ];
         }
         {
           _args = [
             "XF86AudioPause"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"playerctl play-pause\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg media toggle\")")
             (lib.generators.mkLuaInline "{ locked = true }")
           ];
         }
         {
           _args = [
             "XF86AudioPlay"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"playerctl play-pause\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg media toggle\")")
             (lib.generators.mkLuaInline "{ locked = true }")
           ];
         }
         {
           _args = [
             "XF86AudioPrev"
-            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"playerctl previous\")")
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg media previous\")")
             (lib.generators.mkLuaInline "{ locked = true }")
           ];
         }
@@ -419,12 +419,12 @@
 
       window_rule = [
         {
-          name = "clipse";
+          name = "noctalia-settings";
           match = {
-            class = "com.clipse";
+            class = "dev.noctalia.Noctalia";
           };
           float = true;
-          size = "622 652";
+          size = "1080 920";
         }
         {
           match = {
@@ -451,25 +451,7 @@
             "hyprland.start"
             (lib.generators.mkLuaInline ''
               function()
-                -- hl.exec_cmd("clipse -listen")
-                -- hl.exec_cmd("rot8")
-                -- hl.exec_cmd("bash -l -c elephant")
-                -- hl.exec_cmd("walker --gapplication-service")
-                -- hl.exec_cmd("batsignal")
-                -- hl.exec_cmd("hyprpaper")
-                -- hl.exec_cmd("systemctl --user start hyprpolkitagent")
-                -- hl.exec_cmd("~/.config/waybar/waybar.sh")
                 hl.exec_cmd("noctalia")
-              end
-            '')
-          ];
-        }
-        {
-          _args = [
-            "config.reloaded"
-            (lib.generators.mkLuaInline ''
-              function()
-                hl.exec_cmd("~/.config/waybar/waybar.sh")
               end
             '')
           ];

@@ -25,7 +25,6 @@
     ../modules/stylix.nix
     ../modules/tmux.nix
     ../modules/vscode.nix
-    ../modules/waybar.nix
   ];
 
   wayland.windowManager.hyprland.settings.monitor = {
