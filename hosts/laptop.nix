@@ -24,6 +24,7 @@
     ../modules/starship.nix
     ../modules/stylix.nix
     ../modules/tmux.nix
+    ../modules/usb.nix
     ../modules/vscode.nix
   ];
 
