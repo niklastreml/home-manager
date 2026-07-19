@@ -10,7 +10,6 @@
     nautilus
     nerd-fonts.fira-code
     seer
-    spotify
     wvkbd
     xournalpp
     ytmdesktop
