@@ -106,6 +106,18 @@
         }
         {
           _args = [
+            "KP_Divide"
+            (lib.generators.mkLuaInline "hl.dsp.pass({ window = \"class:^(discord)$\" })" )
+          ];
+        }
+        {
+          _args = [
+            "KP_Multiply"
+            (lib.generators.mkLuaInline "hl.dsp.pass({ window = \"class:^(discord)$\" })" )
+          ];
+        }
+        {
+          _args = [
             (lib.generators.mkLuaInline "mod .. \" + Q\"")
             (lib.generators.mkLuaInline "hl.dsp.window.close()")
           ];
