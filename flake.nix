@@ -81,6 +81,19 @@
             ./hosts/laptop.nix
           ];
         };
+        "ntreml@desktop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgsLinux;
+          extraSpecialArgs = {
+            aislop = aislop;
+            inherit nixvim;
+            nur = nurLinux;
+          };
+          modules = [
+            stylix.homeModules.stylix
+            noctalia.homeModules.default
+            ./hosts/desktop.nix
+          ];
+        };
         "ntreml@wsl" = home-manager.lib.homeManagerConfiguration {
           pkgs = pkgsLinux;
           extraSpecialArgs = {
