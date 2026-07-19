@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     brave
+    discord
     easyroam-connect-desktop
     ghostty
     hyprpicker
@@ -12,5 +13,6 @@
     spotify
     wvkbd
     xournalpp
+    ytmdesktop
   ];
 }
