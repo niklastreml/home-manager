@@ -100,7 +100,7 @@
         }
         {
           _args = [
-            (lib.generators.mkLuaInline "mod .. \" + P\"")
+            "SUPER + SHIFT + p"
             (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"hyprpicker -a -q\")")
           ];
         }
@@ -347,6 +347,12 @@
         }
         {
           _args = [
+            "SUPER + SHIFT + s"
+            (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg screenshot-region\")")
+          ];
+        }
+        {
+          _args = [
             "XF86AudioRaiseVolume"
             (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"noctalia msg volume-up\")")
             (lib.generators.mkLuaInline "{ locked = true, repeating = true }")
@@ -459,6 +465,10 @@
       ];
 
       config = {
+        cursor = {
+          no_hardware_cursors = 1;
+        };
+
         general = {
           gaps_in = 5;
           gaps_out = 10;
