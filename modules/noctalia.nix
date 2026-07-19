@@ -7,6 +7,10 @@
     enable = true;
 
     settings = {
+      services.notifications.monitor = "";
+      desktop_widgets = {
+        enabled = false;
+      };
       # ---- Wallpaper (disabled — Stylix manages it) ----
       wallpaper.enabled = false;
 
@@ -25,7 +29,7 @@
           "workspaces"
           "media"
         ];
-        center = [ "clock" ];
+        center = [ "active_window" ];
         end = [
           "tray"
           "notifications"
@@ -38,6 +42,7 @@
           "wvkbd"
           "battery"
           "session"
+          "clock"
         ];
       };
 

@@ -19,6 +19,12 @@
             "nvidia"
           ];
         }
+        {
+          _args = [
+            "ELECTRON_OZONE_PLATFORM_HINT"
+            "auto"
+          ];
+        }
       ];
 
       animation = [
@@ -470,6 +476,7 @@
             (lib.generators.mkLuaInline ''
               function()
                 hl.exec_cmd("noctalia")
+                hl.dispatch(hl.dsp.focus({ workspace = "1" }))
               end
             '')
           ];
