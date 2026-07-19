@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     brave
+    vesktop
     easyroam-connect-desktop
     ghostty
     hyprpicker
@@ -14,4 +15,7 @@
     ytmdesktop
   ];
   home.pointerCursor.enable = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-40.10.5"
+  ];
 }

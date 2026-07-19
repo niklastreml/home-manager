@@ -107,13 +107,13 @@
         {
           _args = [
             "KP_Divide"
-            (lib.generators.mkLuaInline "hl.dsp.pass({ window = \"class:^(discord)$\" })" )
+            (lib.generators.mkLuaInline "hl.dsp.send_shortcut({ mods = \"CTRL SHIFT\", key = \"D\", window = \"class:^(vesktop)$\" })")
           ];
         }
         {
           _args = [
             "KP_Multiply"
-            (lib.generators.mkLuaInline "hl.dsp.pass({ window = \"class:^(discord)$\" })" )
+            (lib.generators.mkLuaInline "hl.dsp.send_shortcut({ mods = \"CTRL SHIFT\", key = \"M\", window = \"class:^(vesktop)$\" })")
           ];
         }
         {
