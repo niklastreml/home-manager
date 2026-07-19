@@ -41,7 +41,7 @@
         output = "HDMI-A-1";
         mode = "preferred";
         position = "3440x0";
-        scale = 2;
+        scale = 1.5;
         transform = 1;
       }
       {
