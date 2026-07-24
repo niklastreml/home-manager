@@ -34,6 +34,15 @@
           ENABLED_TOOLS = "warp_grep";
         };
       };
+      nixos = {
+        type = "local";
+        command = [
+          "nix"
+          "run"
+          "github:utensils/mcp-nixos"
+          "--"
+        ];
+      };
     };
 
     agents = {

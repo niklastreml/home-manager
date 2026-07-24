@@ -20,6 +20,10 @@
       url = "github:mattpocock/skills";
       flake = false;
     };
+    work-skills = {
+      url = "git+ssh://git@gitlab.devops.telekom.de/caas/agentic/skills.git";
+      flake = false;
+    };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
@@ -39,6 +43,7 @@
       nixvim,
       stylix,
       aislop,
+      work-skills,
       noctalia,
       ...
     }:
@@ -98,6 +103,7 @@
           pkgs = pkgsLinux;
           extraSpecialArgs = {
             aislop = aislop;
+            work-skills = work-skills;
             inherit nixvim;
             nur = nurLinux;
           };

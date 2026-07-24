@@ -354,7 +354,8 @@
         "nixvim": "nixvim",
         "noctalia": "noctalia",
         "nur": "nur",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "work-skills": "work-skills"
       }
     },
     "stylix": {
@@ -484,6 +485,22 @@
         "owner": "tinted-theming",
         "repo": "base16-zed",
         "type": "github"
+      }
+    },
+    "work-skills": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784631957,
+        "narHash": "sha256-bSFCSBBjm7iyXhLh3tLlNgrBxkyHO8aT+ZIpPKhIZIg=",
+        "ref": "refs/heads/main",
+        "rev": "9a3cf1fb1aa74dc06f46cfdcd9432f3fa0f7a8ed",
+        "revCount": 132,
+        "type": "git",
+        "url": "ssh://git@gitlab.devops.telekom.de/caas/agentic/skills.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@gitlab.devops.telekom.de/caas/agentic/skills.git"
       }
     }
   },

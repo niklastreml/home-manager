@@ -16,7 +16,9 @@
     ../modules/scripts.nix
     ../modules/starship.nix
     ../modules/stylix.nix
+    ../modules/telecontext.nix
     ../modules/tmux.nix
+    ../modules/work-skills.nix
   ];
 
   programs.pi-coding-agent.settings.defaultModel = "claude-opus-4.8";
